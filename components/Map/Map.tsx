@@ -10,7 +10,7 @@ import {
   useMap,
   useMapEvents,
 } from 'react-leaflet'
-import leaflet from 'leaflet'
+import leaflet, { LatLngExpression } from 'leaflet'
 import app from '../../utils/firebase'
 
 const firestore = getFirestore(app)
@@ -48,7 +48,6 @@ const InnerComponent = memo(
       iconSize: [32, 64],
       iconAnchor: [16, 32],
     })
-    console.log(allMarkers, 'kk')
     return (
       <>
         <TileLayer
@@ -86,7 +85,7 @@ function Map() {
     return null
   }, [data])
 
-  const position = [51.505, -0.09]
+  const position :LatLngExpression = [51.505, -0.09]
   return (
     <div
       style={{ width: '100%', height: '100%' }}
